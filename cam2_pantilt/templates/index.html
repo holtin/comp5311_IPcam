@@ -1,0 +1,156 @@
+
+<html>
+  <head>
+    <title>Camera 2 with Pan Tilt Live Streaming</title>
+    <link rel="stylesheet" href='../static/style.css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  $("#left_most").click(function(){
+			$.ajax({				
+				url: '/leftmost',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	  $("#right_most").click(function(){
+			$.ajax({				
+				url: '/rightmost',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	  $("#to_centre").click(function(){
+			$.ajax({				
+				url: '/tocentre',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	  $("#left").click(function(){
+			$.ajax({				
+				url: '/pan/+',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	  $("#right").click(function(){
+			$.ajax({				
+				url: '/pan/-',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	  $("#up").click(function(){
+			$.ajax({				
+				url: '/tilt/+',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	  $("#down").click(function(){
+			$.ajax({				
+				url: '/tilt/-',
+				success: function(callback) {
+					console.log(callback);
+				}
+			});
+	  });
+	});
+	</script>
+
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+</style>
+  </head>
+  <body>
+<h3> Camera 2 with Pan Tilt Live Streaming </h3>
+<h3> Control panel using AJAX </h3>
+  <button id="left_most" class="button button1">To Left most</button>
+  <button id="to_centre" class="button button3">Centre</button>
+  <button id="right_most" class="button button1">To Right most</button>
+  <br> 
+  <button id="up" class="button button2">UP</button><br>  
+  <button id="left" class="button button2"><-----</button>________________  <button id="right" class="button button2">-----></button>
+  <br>
+  <button id="down" class="button button2">Down</button>
+  
+
+    <hr>
+
+    <h3><img src="{{ url_for('video_feed') }}" width="100%"></h3>
+        <hr>
+
+  </body>
+</html>
+
